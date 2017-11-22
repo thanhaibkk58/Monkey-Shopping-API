@@ -102,8 +102,9 @@ for (var i = 0; i < users.length; i++) {
         if (err) return err;
         else {
             done++;
-            console.log("email: " + user.email);
+            // console.log("email: " + user.email);
             if (done === users.length) {
+                console.log("Done!");
                 exit();
             }
         }

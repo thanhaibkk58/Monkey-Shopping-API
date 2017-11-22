@@ -20,12 +20,10 @@ var userSchema = new Schema({
         required: true
     },
     phone: {
-        type: String,
-        required: true
+        type: String
     },
     avatar_url: {
-        type: String,
-        required: true
+        type: String
     },
     firstname: {
         type: String,
@@ -36,32 +34,27 @@ var userSchema = new Schema({
         required: true
     },
     birthday: {
-        type: String,
-        required: true
+        type: String
     },
     sex: {
-        type: String,
-        required: true
+        type: String
     },
     point: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     address: {
-        type: String,
-        required: true
+        type: String
     },
     province: {
-        type: String,
-        required: true
+        type: String
     },
     city: {
-        type: String,
-        required: true
+        type: String
     },
     postal_code: {
-        type: String,
-        required: true
+        type: String
     },
     isAdmin: {
         type: Boolean,

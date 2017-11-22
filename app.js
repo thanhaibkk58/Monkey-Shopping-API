@@ -9,13 +9,21 @@ var mongoose = require("mongoose");
 var config = require("./api/utils/config");
 
 var index = require("./routes/index");
-var users = require("./routes/users");
+var users = require("./api/controllers/users_controller");
 
 var app = express();
 
 // Connect mongoose
 mongoose.connect(config.url, {
     useMongoClient: true
+});
+
+mongoose.connection.on("open", function (ref) {
+    console.log("Connected to mongo server...");
+});
+mongoose.connection.on("error", function (err) {
+    console.log("Could not connect to mongo server!");
+    console.log(err);
 });
 
 // view engine setup
@@ -31,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", index);
-app.use("/users", users);
+app.use(users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
