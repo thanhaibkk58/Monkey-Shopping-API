@@ -11,11 +11,11 @@ var commentSchema = new Schema({
         type: String,
         required: true
     },
-    user_id: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    product_id: {
+    product: {
         type: Schema.Types.ObjectId,
         ref: "Product"
     }

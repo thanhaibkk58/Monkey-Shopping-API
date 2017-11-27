@@ -10,6 +10,13 @@ var config = require("./api/utils/config");
 
 var index = require("./routes/index");
 var users = require("./api/controllers/users_controller");
+var categories = require("./api/controllers/categories_controller");
+var suppliers = require("./api/controllers/suppliers_controller");
+var products = require("./api/controllers/products_controller");
+var carts = require("./api/controllers/carts_controller");
+var comments = require("./api/controllers/comments_controller");
+var likes = require("./api/controllers/likes_controller");
+var orders = require("./api/controllers/orders_controller");
 
 var app = express();
 
@@ -40,6 +47,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", index);
 app.use(users);
+app.use(categories);
+app.use(suppliers);
+app.use(products);
+app.use(carts);
+app.use(comments);
+app.use(likes);
+app.use(orders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

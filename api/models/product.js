@@ -33,11 +33,11 @@ var productSchema = new Schema({
         default: false
     },
     category: {
-        type: Schema.Types.Object,
+        type: Schema.Types.ObjectId,
         ref: "Category"
     },
     supplier: {
-        type: Schema.Types.Object,
+        type: Schema.Types.ObjectId,
         ref: "Suppier"
     }
 }, {

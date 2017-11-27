@@ -7,7 +7,7 @@ var orderSchema = new Schema({
         required: true,
         unique: true
     },
-    user_id: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
@@ -43,6 +43,14 @@ var orderSchema = new Schema({
         required: true
     },
     ship_city: {
+        type: String,
+        required: true
+    },
+    amount: {
+        type: Number,
+        required: true
+    },
+    status: {
         type: String,
         required: true
     }

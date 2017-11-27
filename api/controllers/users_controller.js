@@ -93,7 +93,7 @@ router.get("/api/profile/:id", function (req, res) {
 
 /* ---------------------------------------------------- */
 /* PUT - Update profile */
-router.put("/api/profile/:id", verifyToken, function (req, res, next) {
+router.put("/api/profile/:id", verifyToken, function (req, res) {
     if (!req.body) return res.status(400).send(message.BAD_REQUEST);
     var hashedPassword = bcryptjs.hashSync(req.body.password, 8);
     var user = new User({
@@ -140,7 +140,7 @@ router.post("/api/me", verifyToken, function(req, res) {
 });
 
 // Add the middleware function
-router.use(function (user, req, res) {
+router.use(function (user, req, res, next) {
     res.status(200).send(user);
 });
 
