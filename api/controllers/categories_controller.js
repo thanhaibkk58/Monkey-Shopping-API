@@ -9,7 +9,7 @@ var verifyToken = require("./verify_token");
 
 /* ---------------------------------------------------- */
 /* POST - Create */
-router.post("/api/categories/add", function (req, res) {
+router.post("/api/categories/add", verifyToken, function (req, res) {
     if (!req.body) return res.status(400).send(message.BAD_REQUEST);
     var category = new Categogy({
         _id: new mongoose.Types.ObjectId,
@@ -17,7 +17,7 @@ router.post("/api/categories/add", function (req, res) {
         description: req.body.description,
         image_url: req.body.image_url
     });
-    Categogy.create(category, verifyToken, function (err, result) {
+    Categogy.create(category, function (err, result) {
         if (err) return res.status(500).send(message.ERROR_SERVER);
         res.status(200).send(result);
     });
