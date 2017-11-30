@@ -16,13 +16,18 @@ var cartSchema = new Schema({
         type: Date,
         required: false
     },
-    product_id: {
+    product: {
         type: Schema.Types.ObjectId,
         ref: "Product"
     },
-    order_id: {
+    quantity: {
+        type: Number,
+        required: true,
+        default: 1
+    },
+    user: {
         type: Schema.Types.ObjectId,
-        ref: "Order"
+        ref: "User"
     }
 }, {
     versionKey: false
